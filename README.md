@@ -12,71 +12,7 @@ demonstration data already loaded.
 `npm install`, so you do not need Python, Visual Studio Build Tools, Xcode Command Line Tools or
 `node-gyp` on any platform.
 
----
 
-## 1. Requirements
-
-| | |
-|---|---|
-| **Node.js** | **20.19 or newer** — Node 22 LTS or Node 24 LTS recommended |
-| npm | 10 or newer (ships with Node) |
-| Database | none to install — SQLite is bundled as WebAssembly |
-| Build tools | none |
-
-Check your version with `node -v`. If it is older than 20.19, install a current LTS from
-<https://nodejs.org>. The backend prints a clear message and stops if the version is too old, rather
-than failing with a confusing stack trace.
-
----
-
-## 2. Quick start (3 commands)
-
-```bash
-npm install          # installs the task runner
-npm run setup        # installs backend + frontend dependencies
-npm run dev          # starts BOTH servers together
-```
-
-Then open **<http://localhost:5173>**
-
-| Portal | URL |
-|---|---|
-| Public portal | <http://localhost:5173> |
-| Administrator portal | <http://localhost:5173/admin/login> |
-| API health check | <http://localhost:4000/api/health> |
-
-On first start the backend creates `backend/.env` automatically, seeds two demo accounts, and loads
-and analyses the two bundled demonstration datasets (774 records). **The demo credentials are printed
-in your terminal.**
-
-### Running the two servers separately
-
-```bash
-# Terminal 1 — backend (port 4000)
-cd backend && npm install && npm run dev
-
-# Terminal 2 — frontend (port 5173)
-cd frontend && npm install && npm run dev
-```
-
-### Single-server / production-style run
-
-```bash
-npm start            # builds the frontend, then serves UI + API from http://localhost:4000
-```
-
-### Other commands
-
-| Command | What it does |
-|---|---|
-| `npm run reset` | Deletes the local database; the next start re-seeds demo data |
-| `npm run build` | Builds the frontend only |
-| `npm run typecheck` | Runs TypeScript against the frontend |
-| `npm run seed` | Seeds demo accounts and datasets without starting the server |
-
----
-
-### Datasets and the House lens
 
 PRAMANA seeds two bundled extracts — `lok-sabha-mp-summary.csv` (543 members) and
 `rajya-sabha-mp-summary.csv` (231) — whose union is exactly the combined "both Houses" file. Seeding
